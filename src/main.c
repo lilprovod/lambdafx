@@ -1,6 +1,10 @@
+#include <math.h>
 #include <stdio.h>
 
 #include "io.h"
+#include "interval.h"
+#include "equation.h"
+#include "chord.h"
 
 int main(int argc, char* argv[])
 {
@@ -10,8 +14,22 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    printf("Successfully parsed:\n\na = %f\ndebug: %s",
-            data.parameter_a, (data.debug_enabled) ? "ON" : "OFF");
+    if (fabs(equation(1.0, data.parameter_a)) < EPS) {
+        printf("Exact root: 1.0\n");
+        return 0;
+    }
+
+    Interval root_interval = { 0 };
+    find_interval(data.parameter_a, &root_interval);
+
+    ChordResult result = chord_method(&data, &root_interval);
+
+    if (result.success) {
+        printf("Root: %.17g\n", result.lambda);
+        printf("Iterations: %zu\n", result.iterations);
+    } else {
+        printf("Unsuccessful chord method\n");
+    }
 
     return 0;
 }

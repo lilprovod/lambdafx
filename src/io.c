@@ -14,7 +14,7 @@ void print_usage()
 
 void print_chord_debug(ChordDebugInfo* info)
 {
-    printf("%-5s | %.17g | %.17g\n",
+    printf("%-5zu | %.17g | %.17g\n",
             info->iteration, info->lambda, info->function_value);
 }
 

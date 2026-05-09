@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <math.h>
 
 #include "chord.h"
@@ -49,7 +50,7 @@ ChordResult chord_method(const InputData* data, const Interval* interval)
             debug_info.lambda = x_previous;
             debug_info.function_value = f_x;
 
-            print_chord_debug(debug_info);
+            print_chord_debug(&debug_info);
         }
     }
 

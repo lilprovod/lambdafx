@@ -3,12 +3,8 @@
 
 #include <stdbool.h>
 
+#include "common.h"
 #include "chord.h"
-
-typedef struct {
-    double parameter_a;
-    bool debug_enabled;
-} InputData;
 
 void print_usage();
 
