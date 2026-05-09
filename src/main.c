@@ -20,7 +20,10 @@ int main(int argc, char* argv[])
     }
 
     Interval root_interval = { 0 };
-    find_interval(data.parameter_a, &root_interval);
+    if (!find_interval(data.parameter_a, &root_interval)) {
+        fprintf(stderr, "Unable to find root interval\n");
+        return 1;
+    }
 
     ChordResult result = chord_method(&data, &root_interval);
 
