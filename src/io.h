@@ -7,7 +7,7 @@
 
 void print_usage();
 
-void print_chord_debug(ChordDebugInfo* info);
+void print_chord_debug(const ChordDebugInfo* info);
 
 void print_chord_header();
 

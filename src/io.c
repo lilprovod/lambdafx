@@ -12,7 +12,7 @@ void print_usage()
     );
 }
 
-void print_chord_debug(ChordDebugInfo* info)
+void print_chord_debug(const ChordDebugInfo* info)
 {
     printf("%-5zu | %.17g | %.17g\n",
             info->iteration, info->lambda, info->function_value);
@@ -21,7 +21,7 @@ void print_chord_debug(ChordDebugInfo* info)
 void print_chord_header()
 {
     printf("Debug info format:\n");
-    printf("iter | lambda | F(lambda)");
+    printf("iter | lambda | F(lambda)\n");
 }
 
 bool parse_args(int argc, char* argv[], InputData* data)
