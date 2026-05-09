@@ -10,6 +10,6 @@ typedef struct {
 
 void print_usage();
 
-int parse_args(int argc, char* argv[], InputData* data);
+bool parse_args(int argc, char* argv[], InputData* data);
 
 #endif
