@@ -21,7 +21,7 @@ void print_chord_debug(const ChordDebugInfo* info)
 void print_chord_header()
 {
     printf("Debug info format:\n");
-    printf("iter | lambda | F(lambda)\n");
+    printf("%-5s | %-18s | %-17s\n", "iter", "lambda", "F(lambda)");
 }
 
 bool parse_args(int argc, char* argv[], InputData* data)
