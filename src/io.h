@@ -4,7 +4,6 @@
 #include <stdbool.h>
 
 #include "common.h"
-#include "chord.h"
 
 void print_usage();
 

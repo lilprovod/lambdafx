@@ -5,7 +5,6 @@
 
 #include "common.h"
 #include "interval.h"
-#include "io.h"
 
 #define MAX_ITERATIONS 100
 

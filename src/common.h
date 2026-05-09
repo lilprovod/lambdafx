@@ -1,6 +1,9 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include <stdbool.h>
+#include <stddef.h>
+
 #define EPS 1e-14
 
 typedef struct {
