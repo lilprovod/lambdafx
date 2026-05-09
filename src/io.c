@@ -12,6 +12,18 @@ void print_usage()
     );
 }
 
+void print_chord_debug(ChordDebugInfo* info)
+{
+    printf("%-5s | %.17g | %.17g\n",
+            info->iteration, info->lambda, info->function_value);
+}
+
+void print_chord_header()
+{
+    printf("Debug info format:\n");
+    printf("iter | lambda | F(lambda)");
+}
+
 bool parse_args(int argc, char* argv[], InputData* data)
 {
     if (argc < 2 || argc > 3) {
