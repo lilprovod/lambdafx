@@ -37,10 +37,17 @@ bool parse_args(int argc, char* argv[], InputData* data)
             fprintf(stderr, "Incorrect value for parameter a: %s\n", argv[1]);
             return false;
         }
+        if (data->parameter_a < 0.0) {
+            fprintf(stderr, "Right part of equation must be positive: %s\n", argv[1]);
+            return false;
+        }
 
         if (argc == 3) {
             if (strcmp(argv[2], "--debug") == 0) {
                 data->debug_enabled = true;
+            } else {
+                fprintf(stderr, "Unknown argument: %s\n", argv[2]);
+                return false;
             }
         } else {
             data->debug_enabled = false;
