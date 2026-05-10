@@ -13,7 +13,7 @@ MethodResult chord_method(const InputData* data, const Interval* interval)
     MethodResult result = { 0, 0, true };
     
     if (debug) {
-        print_method_header();
+        print_method_header("Chord");
     }
 
     double left = interval->left, right = interval->right;
@@ -51,8 +51,12 @@ MethodResult chord_method(const InputData* data, const Interval* interval)
             debug_info.lambda = x_previous;
             debug_info.function_value = f_x;
 
-            print_method_debug(&debug_info);
+            print_method_debug(&debug_info, "C");
         }
+    }
+
+    if (debug) {
+        print_blank();
     }
 
     result.iterations = iters;

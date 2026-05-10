@@ -12,14 +12,18 @@ void print_usage()
     );
 }
 
-void print_method_debug(const MethodDebugInfo* info)
+void print_blank() { printf("\n"); }
+
+void print_method_debug(const MethodDebugInfo* info, const char* method_prefix)
 {
-    printf("%-5zu | %.17g | %.17g\n",
+    printf("[%s] %-5zu | %.17g | %.17g\n",
+            method_prefix,
             info->iteration, info->lambda, info->function_value);
 }
 
-void print_method_header()
+void print_method_header(const char* method_name)
 {
+    printf("%s method iterations:\n", method_name);
     printf("Debug info format:\n");
     printf("%-5s | %-18s | %-17s\n", "iter", "lambda", "F(lambda)");
 }
