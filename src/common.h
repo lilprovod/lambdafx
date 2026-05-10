@@ -12,6 +12,7 @@ typedef struct {
 } InputData;
 
 typedef struct {
+    char* method_name;
     double lambda;
     size_t iterations;
     bool success;

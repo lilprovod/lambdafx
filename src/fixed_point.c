@@ -25,10 +25,15 @@ MethodResult fp_method(const InputData* data, double lambda)
     double a   = data->parameter_a;
     bool debug = data->debug_enabled;
     MethodDebugInfo debug_info = { 0 };
-    MethodResult result = {0, 0, true};
+    MethodResult result = {
+        .method_name ="Fixed-point",
+        .lambda = 0,
+        .iterations = 0,
+        .success = true
+    };
 
     if (debug) {
-        print_method_header("Fixed-point");
+        print_method_header(result.method_name);
     }
 
     size_t iters = 0;
@@ -58,7 +63,7 @@ MethodResult fp_method(const InputData* data, double lambda)
             debug_info.lambda = x_current;
             debug_info.function_value = equation(x_current, a);
 
-            print_method_debug(&debug_info, "FP");
+            print_method_debug(&debug_info, FP_PREFIX_NAME);
         }
     }
 

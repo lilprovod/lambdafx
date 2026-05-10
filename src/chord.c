@@ -10,10 +10,15 @@ MethodResult chord_method(const InputData* data, const Interval* interval)
     double a   = data->parameter_a;
     bool debug = data->debug_enabled;
     MethodDebugInfo debug_info = { 0 };
-    MethodResult result = { 0, 0, true };
+    MethodResult result = {
+        .method_name = "Chord",
+        .lambda = 0,
+        .iterations = 0,
+        .success = true
+    };
     
     if (debug) {
-        print_method_header("Chord");
+        print_method_header(result.method_name);
     }
 
     double left = interval->left, right = interval->right;
@@ -51,7 +56,7 @@ MethodResult chord_method(const InputData* data, const Interval* interval)
             debug_info.lambda = x_previous;
             debug_info.function_value = f_x;
 
-            print_method_debug(&debug_info, "CH");
+            print_method_debug(&debug_info, CHORD_PREFIX_NAME);
         }
     }
 

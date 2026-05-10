@@ -5,6 +5,7 @@
 
 #define FP_ALPHA 0.1
 #define FP_MAX_ITERATIONS 10000
+#define FP_PREFIX_NAME "FP"
 
 /**
  * @brief Описывает функцию вида `λ = φ(λ)` для метода простой итерации

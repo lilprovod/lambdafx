@@ -15,7 +15,6 @@ void print_method_header(const char* method_name);
 
 void print_method_result(
     const MethodResult* result,
-    const char* method_name,
     const size_t max_method_iterations
 );
 

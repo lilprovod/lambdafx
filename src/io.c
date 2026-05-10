@@ -30,11 +30,10 @@ void print_method_header(const char* method_name)
 
 void print_method_result(
     const MethodResult* result,
-    const char* method_name,
     const size_t max_method_iterations
 )
 {
-    printf("=== %s ===\n\n", method_name);
+    printf("=== %s ===\n\n", result->method_name);
     if (result->success) {
         printf("Lambda: %.17g\n", result->lambda);
         printf("Iterations: %zu\n\n", result->iterations);
