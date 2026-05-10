@@ -7,9 +7,9 @@
 
 void print_usage();
 
-void print_chord_debug(const ChordDebugInfo* info);
+void print_method_debug(const MethodDebugInfo* info);
 
-void print_chord_header();
+void print_method_header();
 
 bool parse_args(int argc, char* argv[], InputData* data);
 

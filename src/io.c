@@ -12,13 +12,13 @@ void print_usage()
     );
 }
 
-void print_chord_debug(const ChordDebugInfo* info)
+void print_method_debug(const MethodDebugInfo* info)
 {
     printf("%-5zu | %.17g | %.17g\n",
             info->iteration, info->lambda, info->function_value);
 }
 
-void print_chord_header()
+void print_method_header()
 {
     printf("Debug info format:\n");
     printf("%-5s | %-18s | %-17s\n", "iter", "lambda", "F(lambda)");

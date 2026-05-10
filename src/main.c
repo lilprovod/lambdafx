@@ -25,13 +25,13 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    ChordResult result = chord_method(&data, &root_interval);
+    MethodResult c_result  = chord_method(&data, &root_interval);
 
-    if (result.success) {
-        printf("Root: %.17g\n", result.lambda);
-        printf("Iterations: %zu\n", result.iterations);
+    if (c_result.success) {
+        printf("Root: %.17g\n", c_result.lambda);
+        printf("Iterations: %zu\n\n", c_result.iterations);
     } else {
-        printf("Unsuccessful chord method\n");
+        printf("Unsuccessful chord method...\n\n");
     }
 
     return 0;

@@ -6,8 +6,11 @@
 #include "common.h"
 #include "interval.h"
 
-#define MAX_ITERATIONS 100
+#define CHORD_MAX_ITERATIONS 100
 
-ChordResult chord_method(const InputData* data, const Interval* interval);
+/**
+ * @brief Метод хорд для решения уравнения.
+ */
+MethodResult chord_method(const InputData* data, const Interval* interval);
 
 #endif

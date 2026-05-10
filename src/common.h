@@ -15,12 +15,12 @@ typedef struct {
     double lambda;
     size_t iterations;
     bool success;
-} ChordResult;
+} MethodResult;
 
 typedef struct {
     size_t iteration;
     double lambda;
     double function_value;
-} ChordDebugInfo;
+} MethodDebugInfo;
 
 #endif

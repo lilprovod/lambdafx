@@ -2,17 +2,18 @@
 #include <math.h>
 
 #include "chord.h"
+#include "io.h"
 #include "equation.h"
 
-ChordResult chord_method(const InputData* data, const Interval* interval)
+MethodResult chord_method(const InputData* data, const Interval* interval)
 {
     double a   = data->parameter_a;
     bool debug = data->debug_enabled;
-    ChordDebugInfo debug_info = { 0 };
-    ChordResult result = { 0, 0, true };
+    MethodDebugInfo debug_info = { 0 };
+    MethodResult result = { 0, 0, true };
     
     if (debug) {
-        print_chord_header();
+        print_method_header();
     }
 
     double left = interval->left, right = interval->right;
@@ -23,7 +24,7 @@ ChordResult chord_method(const InputData* data, const Interval* interval)
     double x_current = (left * f_right - right * f_left) /
                        (f_right - f_left);
 
-    while (fabs(x_current - x_previous) > EPS && iters < MAX_ITERATIONS) {
+    while (fabs(x_current - x_previous) > EPS && iters < CHORD_MAX_ITERATIONS) {
         iters++;
         x_previous = x_current;
 
@@ -50,7 +51,7 @@ ChordResult chord_method(const InputData* data, const Interval* interval)
             debug_info.lambda = x_previous;
             debug_info.function_value = f_x;
 
-            print_chord_debug(&debug_info);
+            print_method_debug(&debug_info);
         }
     }
 
@@ -58,7 +59,7 @@ ChordResult chord_method(const InputData* data, const Interval* interval)
     result.lambda = x_current;
 
     // Нет сходимости
-    if (iters >= MAX_ITERATIONS)
+    if (iters >= CHORD_MAX_ITERATIONS)
         result.success = false;
 
     return result;
