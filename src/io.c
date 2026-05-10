@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "io.h"
+#include "comparison.h"
 
 void print_usage()
 {
@@ -38,12 +39,50 @@ void print_method_result(
         printf("Lambda: %.17g\n", result->lambda);
         printf("Iterations: %zu\n\n", result->iterations);
     } else {
-        printf("Unsuccessful method...\n\n");
+        printf("Unsuccessful method...\n");
         if (result->iterations >= max_method_iterations) {
-            printf("Too many iterations of method.\n");
+            printf("Too many iterations of method.\n\n");
         } else {
-            printf("Invalid lambda value (NaN).\n");
+            printf("Invalid lambda value (NaN).\n\n");
         }
+    }
+}
+
+void print_comparison_header() { print_blank(); printf("=== Method comparison ===\n\n"); }
+
+void print_comparison_methods(
+    const MethodResult* method1,
+    const MethodResult* method2
+)
+{
+    if (!method1->success) {
+        printf("%s method was unsucessful. Comparison unavailable.\n", method1->method_name);
+
+        if (!method2->success) {
+            printf("%s method was unsuccessfull too!\n", method2->method_name);
+        }
+
+        return;
+    } else if (!method2->success) {
+        printf("%s method was unsucessful. Comparison unavailable.\n", method2->method_name);
+
+        return;
+    }
+
+    printf("Delta: %.17g\n", delta(method1->lambda, method2->lambda));
+    printf("Matching digits: ~%d\n\n", matching_digits(method1->lambda, method2->lambda));
+    printf("Faster:\n");
+
+    size_t iterations_diff = abs((int)method1->iterations - (int)method2->iterations);
+
+    if (method1->iterations < method2->iterations) {
+        printf("%s method by %zu iterations.\n",
+            method1->method_name, iterations_diff);
+    } else if (method2->iterations < method1->iterations) {
+        printf("%s method by %zu iterations.\n",
+            method2->method_name, iterations_diff);
+    } else {
+        printf("Both methods have an equal count of iterations.\n");
     }
 }
 

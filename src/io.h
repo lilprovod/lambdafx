@@ -18,6 +18,13 @@ void print_method_result(
     const size_t max_method_iterations
 );
 
+void print_comparison_header();
+
+void print_comparison_methods(
+    const MethodResult* method1,
+    const MethodResult* method2
+);
+
 bool parse_args(int argc, char* argv[], InputData* data);
 
 #endif

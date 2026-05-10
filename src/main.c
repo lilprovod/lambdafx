@@ -6,6 +6,7 @@
 #include "equation.h"
 #include "chord.h"
 #include "fixed_point.h"
+#include "comparison.h"
 
 int main(int argc, char* argv[])
 {
@@ -32,8 +33,11 @@ int main(int argc, char* argv[])
     MethodResult c_result  = chord_method(&data, &root_interval);
     MethodResult fp_result = fp_method(&data, start_lambda);
 
-    print_method_result(&c_result, "Chord", CHORD_MAX_ITERATIONS);
-    print_method_result(&fp_result, "Fixed-point", FP_MAX_ITERATIONS);
+    print_method_result(&c_result, CHORD_MAX_ITERATIONS);
+    print_method_result(&fp_result, FP_MAX_ITERATIONS);
+
+    print_comparison_header();
+    print_comparison_methods(&c_result, &fp_result);
 
     return 0;
 }
