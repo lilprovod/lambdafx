@@ -31,7 +31,7 @@ void print_method_header(const char* method_name)
 void print_method_result(
     const MethodResult* result,
     const char* method_name,
-    size_t max_method_iterations
+    const size_t max_method_iterations
 )
 {
     printf("=== %s ===\n\n", method_name);
