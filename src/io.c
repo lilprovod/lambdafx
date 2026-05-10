@@ -16,7 +16,7 @@ void print_blank() { printf("\n"); }
 
 void print_method_debug(const MethodDebugInfo* info, const char* method_prefix)
 {
-    printf("[%s] %-5zu | %.17g | %.17g\n",
+    printf("[%s] %-5zu | %-24.17g | %.17g\n",
             method_prefix,
             info->iteration, info->lambda, info->function_value);
 }
@@ -25,7 +25,27 @@ void print_method_header(const char* method_name)
 {
     printf("%s method iterations:\n", method_name);
     printf("Debug info format:\n");
-    printf("%-5s | %-18s | %-17s\n", "iter", "lambda", "F(lambda)");
+    printf("%-10s | %-24s | %-17s\n", "iter", "lambda", "F(lambda)");
+}
+
+void print_method_result(
+    const MethodResult* result,
+    const char* method_name,
+    size_t max_method_iterations
+)
+{
+    printf("=== %s ===\n\n", method_name);
+    if (result->success) {
+        printf("Lambda: %.17g\n", result->lambda);
+        printf("Iterations: %zu\n\n", result->iterations);
+    } else {
+        printf("Unsuccessful method...\n\n");
+        if (result->iterations >= max_method_iterations) {
+            printf("Too many iterations of method.\n");
+        } else {
+            printf("Invalid lambda value (NaN).\n");
+        }
+    }
 }
 
 bool parse_args(int argc, char* argv[], InputData* data)

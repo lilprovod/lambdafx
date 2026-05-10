@@ -32,22 +32,8 @@ int main(int argc, char* argv[])
     MethodResult c_result  = chord_method(&data, &root_interval);
     MethodResult fp_result = fp_method(&data, start_lambda);
 
-    printf("---===    CHORD METHOD    ===---\n\n");
-    if (c_result.success) {
-        printf("Root: %.17g\n", c_result.lambda);
-        printf("Iterations: %zu\n\n", c_result.iterations);
-    } else {
-        printf("Unsuccessful chord method...\n\n");
-    }
-
-    printf("---=== FIXED POINT METHOD ===---\n");
-    if (fp_result.success) {
-        printf("Root: %.17g\n", fp_result.lambda);
-        printf("Iterations: %zu\n\n", fp_result.iterations);
-    } else {
-        printf("Unsuccessful fixed point method... Maybe phi(x) diverges?\n");
-        printf("Count of method iterations: %zu\n\n", fp_result.iterations);
-    }
+    print_method_result(&c_result, "Chord", CHORD_MAX_ITERATIONS);
+    print_method_result(&fp_result, "Fixed-point", FP_MAX_ITERATIONS);
 
     return 0;
 }
