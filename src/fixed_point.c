@@ -28,7 +28,7 @@ MethodResult fp_method(const InputData* data, double lambda)
     MethodResult result = {0, 0, true};
 
     if (debug) {
-        print_method_header("Fixed point");
+        print_method_header("Fixed-point");
     }
 
     size_t iters = 0;

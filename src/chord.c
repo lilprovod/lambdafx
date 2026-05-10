@@ -51,7 +51,7 @@ MethodResult chord_method(const InputData* data, const Interval* interval)
             debug_info.lambda = x_previous;
             debug_info.function_value = f_x;
 
-            print_method_debug(&debug_info, "C");
+            print_method_debug(&debug_info, "CH");
         }
     }
 
