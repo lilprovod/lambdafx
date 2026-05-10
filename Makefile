@@ -1,5 +1,5 @@
 CC = gcc
-RM = C:/msys64/usr/bin/rm.exe
+RM = rm
 CFLAGS = -std=c99 -Wall -Wextra -O2 -Isrc -pedantic
 LDFLAGS = -lm
 
