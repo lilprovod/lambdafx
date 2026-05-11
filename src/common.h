@@ -4,7 +4,8 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#define EPS 1e-14
+#define ROOT_EPS 1e-14
+#define ITER_EPS 5e-15
 
 typedef struct {
     double parameter_a;

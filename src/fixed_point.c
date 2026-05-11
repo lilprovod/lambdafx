@@ -45,7 +45,8 @@ MethodResult fp_method(const InputData* data, double lambda)
     double x_raw = phi(x_previous, a);
     double x_current = (1.0 - FP_ALPHA) * x_previous + FP_ALPHA * x_raw;
 
-    while (fabs(x_current - x_previous) > EPS && iters < FP_MAX_ITERATIONS) {
+    while (fabs(x_current - x_previous) > ITER_EPS * (1.0 + fabs(x_previous))
+            && iters < FP_MAX_ITERATIONS) {
         iters++;
         x_previous = x_current;
         

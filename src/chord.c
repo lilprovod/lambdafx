@@ -29,7 +29,8 @@ MethodResult chord_method(const InputData* data, const Interval* interval)
     double x_current = (left * f_right - right * f_left) /
                        (f_right - f_left);
 
-    while (fabs(x_current - x_previous) > EPS && iters < CHORD_MAX_ITERATIONS) {
+    while (fabs(x_current - x_previous) > ITER_EPS * (1.0 + fabs(x_previous))
+            && iters < CHORD_MAX_ITERATIONS) {
         iters++;
         x_previous = x_current;
 
@@ -44,7 +45,7 @@ MethodResult chord_method(const InputData* data, const Interval* interval)
         }
         
         // Вырожденное решение
-        if (fabs(f_right - f_left) < EPS) {
+        if (fabs(f_right - f_left) < ROOT_EPS) {
             result.success = false;
             break;
         }
