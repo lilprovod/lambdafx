@@ -21,7 +21,7 @@ $$
 В методе простой итерации применяется механика релаксации, чтобы повысить сходимость функции $\phi(\lambda)$:
 
 $$
-\lambda = \phi(\lambda) = \frac{\sqrt{2} \omega_0 t}{\sqrt{1 - \frac{1}{\lambda} + \frac{1}{\lambda} \ln (\sqrt{\lambda} + \sqrt{\lambda - 1})}}
+\lambda = \phi(\lambda) = \frac{\sqrt{2} \omega_0 t}{\sqrt{1 - \frac{1}{\lambda}} + \frac{1}{\lambda} \ln (\sqrt{\lambda} + \sqrt{\lambda - 1})}
 $$
 
 Без релаксации метод сходится, начиная примерно с $a > 1.335$, с релаксацией уже для $a > 0.325$, что значительно улучшило применимость метода для малых $a$.
