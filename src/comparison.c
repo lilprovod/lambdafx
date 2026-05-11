@@ -4,13 +4,11 @@
 
 #include "comparison.h"
 
-/** @brief Рассчитывает разницу между двумя числами. */
 double delta(double value1, double value2)
 {
     return fabs(value1 - value2);
 }
 
-/** @brief Возвращает количество совпадающих знаков между двумя числами. */
 int matching_digits(double value1, double value2)
 {
     double diff = delta(value1, value2);

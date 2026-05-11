@@ -1,14 +1,6 @@
 #include "equation.h"
 #include "interval.h"
 
-/**
- * @brief Ищет интервал функции `F(λ)`, на котором она пересекает ось OX.
- * 
- * @param a[in]         Параметр правой части уравнения
- * @param interval[out] Найденный интервал
- * 
- * @return Возвращает `true`, если интервал успешно найден. Иначе `false`.
- */
 bool find_interval(double a, Interval* interval)
 {
     double start = 1.0, end = 2.0;
