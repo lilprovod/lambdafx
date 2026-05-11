@@ -73,14 +73,12 @@ void print_comparison_methods(
     printf("Matching digits: ~%d\n\n", matching_digits(method1->lambda, method2->lambda));
     printf("Faster:\n");
 
-    size_t iterations_diff = abs((int)method1->iterations - (int)method2->iterations);
-
     if (method1->iterations < method2->iterations) {
         printf("%s method by %zu iterations.\n",
-            method1->method_name, iterations_diff);
+            method1->method_name, method2->iterations - method1->iterations);
     } else if (method2->iterations < method1->iterations) {
         printf("%s method by %zu iterations.\n",
-            method2->method_name, iterations_diff);
+            method2->method_name, method1->iterations - method2->iterations);
     } else {
         printf("Both methods have an equal count of iterations.\n");
     }
