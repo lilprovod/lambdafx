@@ -61,7 +61,7 @@ MethodResult fp_method(const InputData* data, double lambda)
         if (debug) {
             debug_info.iteration = iters;
             debug_info.lambda = x_current;
-            debug_info.function_value = equation(x_current, a);
+            debug_info.function_value = equation_acosh(x_current, a);
 
             print_method_debug(&debug_info, FP_PREFIX_NAME);
         }

@@ -6,9 +6,9 @@ bool find_interval(double a, Interval* interval)
     double start = 1.0, end = 2.0;
     double step = 1.0;
 
-    double function_start = equation(start, a);
+    double function_start = equation_acosh(start, a);
 
-    while (function_start * equation(end, a) >= 0) {
+    while (function_start * equation_acosh(end, a) >= 0) {
         end  += step;
         step *= 2;
 

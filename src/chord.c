@@ -22,7 +22,7 @@ MethodResult chord_method(const InputData* data, const Interval* interval)
     }
 
     double left = interval->left, right = interval->right;
-    double f_left = equation(left, a), f_right = equation(right, a);
+    double f_left = equation_acosh(left, a), f_right = equation_acosh(right, a);
 
     size_t iters = 0;
     double x_previous = left;
@@ -33,7 +33,7 @@ MethodResult chord_method(const InputData* data, const Interval* interval)
         iters++;
         x_previous = x_current;
 
-        double f_x = equation(x_current, a);
+        double f_x = equation_acosh(x_current, a);
 
         if (f_left * f_x < 0) {
             right = x_current;

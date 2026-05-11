@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    if (fabs(equation(1.0, data.parameter_a)) < EPS) {
+    if (fabs(equation_acosh(1.0, data.parameter_a)) < EPS) {
         printf("Exact root: 1.0\n");
         return 0;
     }
