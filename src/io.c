@@ -56,7 +56,7 @@ void print_comparison_methods(
 )
 {
     if (!method1->success) {
-        printf("%s method was unsucessful. Comparison unavailable.\n", method1->method_name);
+        printf("%s method was unsuccessful. Comparison unavailable.\n", method1->method_name);
 
         if (!method2->success) {
             printf("%s method was unsuccessfull too!\n", method2->method_name);
@@ -64,7 +64,7 @@ void print_comparison_methods(
 
         return;
     } else if (!method2->success) {
-        printf("%s method was unsucessful. Comparison unavailable.\n", method2->method_name);
+        printf("%s method was unsuccessful. Comparison unavailable.\n", method2->method_name);
 
         return;
     }
